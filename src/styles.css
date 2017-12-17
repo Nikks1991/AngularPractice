@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+li {
+  margin: 10px;
+  width: 30%;
+}
+
+.float-right {
+  float: right;
+}
+
+.width-25 {
+  width: 25%;
+}
