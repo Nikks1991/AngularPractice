@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let item of list; index as i" [id]="i">
+    {{i + 1}}
+    <span>{{item}}</span>
+
+    <button type="button" name="button" class="float-right btn-warning" (click)="deleteWish(i, item)">Delete</button>
+    <br>
+  </li>
+</ul>
