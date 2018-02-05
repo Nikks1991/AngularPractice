@@ -1,0 +1,5 @@
+<div class="">
+    <app-header></app-header>
+    <app-wish-list [list]="wishList" (delete)="deleteWish($event)"></app-wish-list>
+    <app-add-list (addWish)="addWish($event)"></app-add-list>
+</div>
