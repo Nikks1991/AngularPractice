@@ -1,5 +1,4 @@
-<input type="file" name="" value="" (change)="fileSelect($event)">
+<input type="file" id="fileSelector" value="" (change)="fileSelect($event)">
 <br>
-<h2>{{fileName}}</h2>
+<h2>{{fileContents}}</h2>
 <br>
-<p [innerHTML]="fileContents"></p>

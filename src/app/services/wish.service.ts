@@ -16,4 +16,4 @@ export class WishService {
   get() {
     return this.wishList;
   }
-  }
+ }

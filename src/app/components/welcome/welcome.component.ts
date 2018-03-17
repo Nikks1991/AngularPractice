@@ -3,7 +3,7 @@ import { WishService } from './../../services/wish.service';
 
 @Component({
     selector: 'app-welcome',
-    templateUrl: './welcome.component.html';
+    templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent {
     private wishList  = [];

@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 
+import { WSConnectService } from '../../services/wsconnect.service';
+
 @Component({
     selector: 'file-picker',
     templateUrl: 'file-reader.component.html'
 })
 export class FileReaderComponent {
-    private fileReader: FileReader = new FileReader();
-    private fileName = '';
     private fileContents = '';
+    private timeStart = 0;
+    private timeEnd = 0;
+    private worker: Worker = new Worker('workers/fileReadWorker.js');
 
     constructor() {
-        this.fileReader.onload = (e) => this.fileLoad(e);
+        this.worker.onmessage = ((msg: MessageEvent) => {
+            this.timeEnd = new Date().valueOf();
+            this.fileContents = `Time ealapsed: ${this.timeEnd - this.timeStart}`;
+        });
     }
 
     private fileSelect(e) {
-        this.fileName = e.srcElement.files[0].name;
         this.fileContents = 'Loading..';
-        this.fileReader.readAsText(e.srcElement.files[0]);
+        this.timeStart = new Date().valueOf();
+        this.worker.postMessage(e.srcElement.files[0]);
     }
 
-    private fileLoad(e) {
-        this.fileContents = this.fileReader.result;
-    }
 }

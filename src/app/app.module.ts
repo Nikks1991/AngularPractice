@@ -1,15 +1,16 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
-import {AppComponent} from './app.component';
-import {WelcomeComponent} from './components/welcome/welcome.component';
-import {AddListComponent} from './components/app-add-list/app-add-list.component';
-import {AppHeaderComponent} from './components/app-header/app-header.component';
-import {AppWishListComponent} from './components/app-wish-list/app-wish-list.component';
-import {FileReaderComponent} from './components/file-reader/file-reader.component';
+import { AppComponent } from './app.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AddListComponent } from './components/app-add-list/app-add-list.component';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { AppWishListComponent } from './components/app-wish-list/app-wish-list.component';
+import { FileReaderComponent } from './components/file-reader/file-reader.component';
 
-import {WishService} from './services/wish.service';
+import { WishService} from './services/wish.service';
+import { WSConnectService } from './services/wsconnect.service';
 
 const routes: Routes = [
     {
@@ -25,10 +26,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [ AppComponent, WelcomeComponent, AppHeaderComponent, AppWishListComponent, AddListComponent, FileReaderComponent ],
   imports: [
-      BrowserModule
+      BrowserModule,
       RouterModule.forRoot(routes)
   ],
-  providers: [WishService],
+  providers: [ WishService, WSConnectService ],
   exports: [],
   bootstrap: [ AppComponent ]
 })
